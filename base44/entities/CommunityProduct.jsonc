@@ -1,0 +1,52 @@
+{
+  "name": "CommunityProduct",
+  "type": "object",
+  "properties": {
+    "product_name": {
+      "type": "string",
+      "description": "Normalized product name (lowercase)"
+    },
+    "barcode": {
+      "type": "string",
+      "description": "Product barcode if available (used for deduplication)"
+    },
+    "ingredients_text": {
+      "type": "string",
+      "description": "Raw ingredients list extracted via OCR"
+    },
+    "calories": {
+      "type": "number",
+      "description": "Calories per 100g"
+    },
+    "protein": {
+      "type": "number",
+      "description": "Protein in grams per 100g"
+    },
+    "carbs": {
+      "type": "number",
+      "description": "Carbohydrates in grams per 100g"
+    },
+    "fat": {
+      "type": "number",
+      "description": "Fat in grams per 100g"
+    },
+    "ocr_confidence": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "default": "medium",
+      "description": "OCR extraction confidence level"
+    },
+    "source": {
+      "type": "string",
+      "default": "community_ocr",
+      "description": "Data source identifier"
+    }
+  },
+  "required": [
+    "product_name"
+  ]
+}

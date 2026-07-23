@@ -1,0 +1,45 @@
+{
+  "name": "GlutenFreeProduct",
+  "type": "object",
+  "properties": {
+    "product_name": {
+      "type": "string",
+      "description": "Name of the verified gluten-free product"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand name"
+    },
+    "barcode": {
+      "type": "string",
+      "description": "Product barcode if available"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "bread",
+        "pasta",
+        "snacks",
+        "cereals",
+        "dairy",
+        "beverages",
+        "sauces",
+        "frozen",
+        "canned",
+        "other"
+      ],
+      "description": "Product category"
+    },
+    "calories_per_serving": {
+      "type": "number",
+      "description": "Calories per serving"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about the product"
+    }
+  },
+  "required": [
+    "product_name"
+  ]
+}

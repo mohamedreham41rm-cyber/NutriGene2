@@ -1,0 +1,148 @@
+{
+  "name": "HealthProfile",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "User email / ID"
+    },
+    "age": {
+      "type": "number"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "other"
+      ]
+    },
+    "height": {
+      "type": "number",
+      "description": "Height in cm"
+    },
+    "weight": {
+      "type": "number",
+      "description": "Weight in kg"
+    },
+    "activity_level": {
+      "type": "string",
+      "enum": [
+        "sedentary",
+        "light",
+        "moderate",
+        "active",
+        "very_active"
+      ],
+      "default": "moderate"
+    },
+    "goal": {
+      "type": "string",
+      "enum": [
+        "lose_weight",
+        "gain_weight",
+        "maintain"
+      ]
+    },
+    "healthCondition": {
+      "type": "string",
+      "enum": [
+        "none",
+        "gluten_sensitivity",
+        "celiac"
+      ],
+      "default": "none"
+    },
+    "hasIBS": {
+      "type": "boolean",
+      "default": false
+    },
+    "lowFODMAPEnabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "dailyCalories": {
+      "type": "number",
+      "description": "Calculated daily calorie target (legacy)"
+    },
+    "bmr": {
+      "type": "number"
+    },
+    "tdee": {
+      "type": "number"
+    },
+    "daily_calorie_target": {
+      "type": "number",
+      "description": "Single source of truth calorie target"
+    },
+    "daily_protein_target": {
+      "type": "number",
+      "description": "Daily protein target in grams"
+    },
+    "daily_carb_target": {
+      "type": "number",
+      "description": "Daily carbohydrate target in grams"
+    },
+    "daily_fat_target": {
+      "type": "number",
+      "description": "Daily fat target in grams"
+    },
+    "has_diabetes": {
+      "type": "boolean",
+      "default": false,
+      "description": "Type 2 diabetes or pre-diabetes"
+    },
+    "has_hypertension": {
+      "type": "boolean",
+      "default": false,
+      "description": "High blood pressure"
+    },
+    "has_high_cholesterol": {
+      "type": "boolean",
+      "default": false,
+      "description": "High LDL / cardiovascular risk"
+    },
+    "has_lactose_intolerance": {
+      "type": "boolean",
+      "default": false,
+      "description": "Lactose intolerance flag"
+    },
+    "allergies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "User-declared food allergies (e.g. peanuts, shellfish, tree nuts)"
+    },
+    "diet_type": {
+      "type": "string",
+      "enum": [
+        "none",
+        "vegetarian",
+        "vegan",
+        "keto",
+        "paleo",
+        "mediterranean"
+      ],
+      "default": "none",
+      "description": "Optional dietary preference"
+    },
+    "onboarding_version": {
+      "type": "number",
+      "description": "Schema version of the onboarding flow that created this record"
+    },
+    "last_updated_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the profile was last modified"
+    }
+  },
+  "required": [
+    "userId",
+    "age",
+    "gender",
+    "height",
+    "weight",
+    "goal"
+  ]
+}

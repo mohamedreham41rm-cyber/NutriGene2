@@ -1,0 +1,110 @@
+{
+  "name": "ScanHistory",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "Authenticated user email \u2014 used to scope history per user"
+    },
+    "product_name": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "food_product_id": {
+      "type": "string",
+      "description": "Reference to FoodProduct.id when the scan was for a branded product."
+    },
+    "scan_method": {
+      "type": "string",
+      "enum": [
+        "whitelist",
+        "barcode",
+        "manual",
+        "search",
+        "ocr"
+      ]
+    },
+    "nutrigene_score": {
+      "type": "number"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "safe",
+        "moderate",
+        "high_risk"
+      ]
+    },
+    "gluten_alert": {
+      "type": "boolean",
+      "default": false
+    },
+    "fodmap_alert": {
+      "type": "boolean",
+      "default": false
+    },
+    "calories": {
+      "type": "number"
+    },
+    "ingredients_text": {
+      "type": "string"
+    },
+    "nutrition_facts": {
+      "type": "object"
+    },
+    "scanned_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "lactose_alert": {
+      "type": "boolean",
+      "default": false,
+      "description": "Product contains lactose and user is intolerant"
+    },
+    "score_label": {
+      "type": "string",
+      "enum": [
+        "Excellent",
+        "Good",
+        "Occasional",
+        "Poor",
+        "Avoid"
+      ],
+      "description": "Human-readable score tier stored at scan time"
+    },
+    "penalties": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Score penalty breakdown recorded at scan time"
+    },
+    "archetype_id": {
+      "type": "string",
+      "description": "ProductArchetype matched for this scan (if name-only fallback was used)"
+    },
+    "source_database": {
+      "type": "string",
+      "enum": [
+        "open_food_facts",
+        "whitelist",
+        "community_ocr",
+        "generic_food_db",
+        "manual",
+        "unknown"
+      ],
+      "default": "unknown",
+      "description": "Which database provided the product data"
+    },
+    "barcode": {
+      "type": "string",
+      "description": "Scanned barcode if available"
+    }
+  },
+  "required": [
+    "product_name",
+    "scanned_at"
+  ]
+}

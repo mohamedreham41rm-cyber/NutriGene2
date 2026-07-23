@@ -1,0 +1,54 @@
+{
+  "name": "ProductArchetypes",
+  "type": "object",
+  "properties": {
+    "archetype_id": {
+      "type": "string",
+      "description": "Unique identifier e.g. potato_chips, canned_tuna"
+    },
+    "display_name_en": {
+      "type": "string"
+    },
+    "display_name_ar": {
+      "type": "string"
+    },
+    "name_markers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Keywords used to match product names to this archetype (lowercase)"
+    },
+    "contexts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Product contexts e.g. fried, ultra_processed, chips_snacks"
+    },
+    "processing_level": {
+      "type": "string",
+      "enum": [
+        "fresh",
+        "minimal",
+        "processed",
+        "ultra_processed",
+        "deep_fried"
+      ],
+      "default": "processed"
+    },
+    "hard_cap": {
+      "type": "number",
+      "description": "Maximum NutriGene score for this archetype. null = no cap."
+    },
+    "can_confirm_gluten_free": {
+      "type": "boolean",
+      "default": false,
+      "description": "If false, archetype match CANNOT confirm gluten-free status"
+    }
+  },
+  "required": [
+    "archetype_id",
+    "name_markers"
+  ]
+}

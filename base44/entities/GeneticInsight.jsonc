@@ -1,0 +1,150 @@
+{
+  "name": "GeneticInsight",
+  "type": "object",
+  "properties": {
+    "gene": {
+      "type": "string",
+      "description": "Gene name (e.g. HLA-DQ2, MTHFR)"
+    },
+    "rs_id": {
+      "type": "string",
+      "description": "rsID / rs Number"
+    },
+    "risk_variant": {
+      "type": "string",
+      "description": "The variant that indicates risk"
+    },
+    "your_variant": {
+      "type": "string",
+      "description": "The user's actual variant"
+    },
+    "risk_detected": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if your_variant matches risk_variant"
+    },
+    "recommendation": {
+      "type": "string",
+      "description": "Recommendation text from the report"
+    },
+    "effect": {
+      "type": "string",
+      "description": "Short consumer-friendly genetic insight"
+    },
+    "disclaimer": {
+      "type": "string",
+      "description": "Scientific or medical clarification disclaimer"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "high",
+        "moderate",
+        "low"
+      ],
+      "default": "moderate",
+      "description": "Genetic impact severity level"
+    },
+    "category": {
+      "type": "string",
+      "description": "Health category such as gluten, metabolic, vitamins"
+    },
+    "tag": {
+      "type": "string",
+      "enum": [
+        "gluten_risk",
+        "lactose_intolerance",
+        "folate_support",
+        "vitamin_deficiency",
+        "insulin_control",
+        "metabolic_risk",
+        "cardiovascular_risk",
+        "inflammation",
+        "gut_health",
+        "fat_metabolism",
+        "stress",
+        "weight_management",
+        "oxidative_stress",
+        "caffeine",
+        "general"
+      ],
+      "default": "general",
+      "description": "Mapped health tag"
+    },
+    "gene_source": {
+      "type": "string",
+      "enum": [
+        "user",
+        "inferred"
+      ],
+      "default": "user",
+      "description": "Whether the gene name was provided by user or inferred from rsID mapping"
+    }
+  },
+  "required": [
+    "gene",
+    "risk_detected"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "write": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "ConsumptionHistory",
+  "type": "object",
+  "properties": {
+    "product_name": {
+      "type": "string",
+      "description": "Name of the consumed product"
+    },
+    "calories": {
+      "type": "number",
+      "description": "Calories consumed"
+    },
+    "nutrigene_score": {
+      "type": "number",
+      "description": "NutriGene score of the product"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "safe",
+        "moderate",
+        "high_risk"
+      ],
+      "description": "Risk level of the product"
+    },
+    "consumption_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of consumption"
+    },
+    "nutrition_facts": {
+      "type": "object",
+      "description": "Nutrition facts of the product"
+    }
+  },
+  "required": [
+    "product_name",
+    "calories",
+    "consumption_date"
+  ]
+}

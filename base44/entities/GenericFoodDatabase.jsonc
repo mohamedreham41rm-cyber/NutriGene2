@@ -1,0 +1,182 @@
+{
+  "name": "GenericFoodDatabase",
+  "type": "object",
+  "properties": {
+    "food_id": {
+      "type": "string",
+      "description": "Unique stable food identifier."
+    },
+    "canonical_name": {
+      "type": "string",
+      "description": "Primary English master food name."
+    },
+    "food_name": {
+      "type": "string",
+      "description": "Compatibility field used by the existing NutriGene application."
+    },
+    "food_name_ar": {
+      "type": "string",
+      "description": "Primary Arabic food name."
+    },
+    "normalized_name": {
+      "type": "string",
+      "description": "Lowercase normalized name used for search and duplicate prevention."
+    },
+    "aliases": {
+      "type": "string",
+      "description": "Arabic and English alternative names separated by |."
+    },
+    "category": {
+      "type": "string",
+      "description": "Primary food category."
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "Secondary classification."
+    },
+    "typical_serving_g": {
+      "type": "number",
+      "description": "Optional common reference portion. Nutrition values remain stored per 100g."
+    },
+    "calories": {
+      "type": "number",
+      "description": "Kilocalories per 100g."
+    },
+    "protein": {
+      "type": "number",
+      "description": "Protein grams per 100g."
+    },
+    "carbs": {
+      "type": "number",
+      "description": "Carbohydrate grams per 100g."
+    },
+    "fat": {
+      "type": "number",
+      "description": "Fat grams per 100g."
+    },
+    "fiber": {
+      "type": "number",
+      "description": "Fiber grams per 100g."
+    },
+    "sugar": {
+      "type": "number",
+      "description": "Sugar grams per 100g."
+    },
+    "sodium": {
+      "type": "number",
+      "description": "Sodium milligrams per 100g."
+    },
+    "saturated_fat": {
+      "type": "number",
+      "description": "Saturated fat grams per 100g."
+    },
+    "gluten_status": {
+      "type": "string",
+      "description": "Medical source of truth: contains | gluten_free | may_contain | unknown."
+    },
+    "lactose_status": {
+      "type": "string",
+      "description": "Medical source of truth: contains | lactose_free | may_contain | unknown."
+    },
+    "fodmap_status": {
+      "type": "string",
+      "description": "Medical source of truth: LOW | MODERATE | HIGH | PORTION_DEPENDENT | UNKNOWN."
+    },
+    "gluten_free": {
+      "type": "boolean",
+      "description": "Compatibility field. Must not be true when gluten_status is unknown.",
+      "default": false
+    },
+    "contains_gluten": {
+      "type": "boolean",
+      "description": "Whether this food contains gluten.",
+      "default": false
+    },
+    "lactose_free": {
+      "type": "boolean",
+      "description": "Compatibility field. Must not be true when lactose_status is unknown.",
+      "default": false
+    },
+    "contains_lactose": {
+      "type": "boolean",
+      "description": "Whether this food contains lactose.",
+      "default": false
+    },
+    "low_fodmap": {
+      "type": "boolean",
+      "description": "Must only be true for confirmed low-FODMAP foods or appropriate verified portions.",
+      "default": false
+    },
+    "ibs_guidance": {
+      "type": "string",
+      "description": "IBS suitability: generally_suitable | portion_control | caution | avoid | unknown."
+    },
+    "glycemic_status": {
+      "type": "string",
+      "description": "Glycemic index classification: LOW | MEDIUM | HIGH | UNKNOWN."
+    },
+    "processing_level": {
+      "type": "string",
+      "description": "NOVA-style processing: fresh | minimal | prepared | processed | ultra_processed."
+    },
+    "base_quality_score": {
+      "type": "number",
+      "description": "Baseline food quality score from 0 to 100."
+    },
+    "preferred_for_mthfr": {
+      "type": "boolean",
+      "description": "Recommended for users with MTHFR gene variant.",
+      "default": false
+    },
+    "preferred_for_tcf7l2": {
+      "type": "boolean",
+      "description": "Recommended for users with TCF7L2 gene variant (type 2 diabetes risk).",
+      "default": false
+    },
+    "preferred_for_apoe": {
+      "type": "boolean",
+      "description": "Recommended for users with APOE gene variant (cardiovascular risk).",
+      "default": false
+    },
+    "preferred_for_hla_dq2": {
+      "type": "boolean",
+      "description": "Recommended for users with HLA-DQ2 gene variant (gluten sensitivity).",
+      "default": false
+    },
+    "preferred_for_fto": {
+      "type": "boolean",
+      "description": "Recommended for users with FTO gene variant (obesity/weight management).",
+      "default": false
+    },
+    "preferred_for_lct": {
+      "type": "boolean",
+      "description": "Recommended for users with LCT gene variant (lactose intolerance).",
+      "default": false
+    },
+    "verification_status": {
+      "type": "string",
+      "description": "Data quality: verified | curated | screening_data | needs_review | legacy."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-text notes, references, or editorial comments."
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "Whether this record is visible and used by the application.",
+      "default": true
+    },
+    "schema_version": {
+      "type": "number",
+      "description": "Schema version of this record (current: 2).",
+      "default": 2
+    }
+  },
+  "required": [
+    "food_id",
+    "canonical_name",
+    "food_name",
+    "normalized_name",
+    "category"
+  ]
+}

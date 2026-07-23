@@ -1,0 +1,30 @@
+{
+  "name": "CategoryRules",
+  "type": "object",
+  "properties": {
+    "category_id": {
+      "type": "string",
+      "description": "Normalized context string e.g. chips_snacks, soft_drink"
+    },
+    "display_name_en": {
+      "type": "string"
+    },
+    "display_name_ar": {
+      "type": "string"
+    },
+    "hard_cap": {
+      "type": "number",
+      "description": "Maximum NutriGene score for products in this category"
+    },
+    "base_penalty": {
+      "type": "number",
+      "description": "Points automatically deducted when product matches this category"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "category_id"
+  ]
+}

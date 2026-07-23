@@ -1,0 +1,23 @@
+{
+  "name": "GlutenKeyword",
+  "type": "object",
+  "properties": {
+    "keyword": {
+      "type": "string",
+      "description": "Gluten-related ingredient keyword (e.g. wheat, barley, rye)"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "default": "high",
+      "description": "How risky this ingredient is for gluten-sensitive individuals"
+    }
+  },
+  "required": [
+    "keyword"
+  ]
+}

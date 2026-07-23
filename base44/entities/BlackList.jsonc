@@ -1,0 +1,49 @@
+{
+  "name": "BlackList",
+  "type": "object",
+  "properties": {
+    "ingredient": {
+      "type": "string",
+      "description": "Blacklisted ingredient keyword (e.g. wheat, barley, rye)"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "gluten",
+        "fodmap",
+        "allergen",
+        "other"
+      ],
+      "default": "gluten"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "default": "high"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ingredient"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

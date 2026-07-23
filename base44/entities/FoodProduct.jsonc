@@ -1,0 +1,151 @@
+{
+  "name": "FoodProduct",
+  "type": "object",
+  "properties": {
+    "product_id": {
+      "type": "string",
+      "description": "Unique identifier for the product."
+    },
+    "product_name": {
+      "type": "string",
+      "description": "Primary product name."
+    },
+    "product_name_ar": {
+      "type": "string",
+      "description": "Primary Arabic product name."
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Short user-facing product name shown in search results and autocomplete."
+    },
+    "normalized_name": {
+      "type": "string",
+      "description": "Normalized name used for search and duplicate prevention."
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand or manufacturer name."
+    },
+    "category": {
+      "type": "string",
+      "description": "Primary product category."
+    },
+    "archetype_key": {
+      "type": "string",
+      "description": "Product archetype key used for fallback scoring."
+    },
+    "aliases": {
+      "type": "string",
+      "description": "Long text. Arabic and English aliases separated by |."
+    },
+    "ingredients_text": {
+      "type": "string",
+      "description": "Long text. Raw ingredients list as printed on the label."
+    },
+    "calories_100g": {
+      "type": "number",
+      "description": "Calories per 100g."
+    },
+    "protein_g_100g": {
+      "type": "number",
+      "description": "Protein grams per 100g."
+    },
+    "carbs_g_100g": {
+      "type": "number",
+      "description": "Carbohydrate grams per 100g."
+    },
+    "fat_g_100g": {
+      "type": "number",
+      "description": "Fat grams per 100g."
+    },
+    "sugar_g_100g": {
+      "type": "number",
+      "description": "Sugar grams per 100g."
+    },
+    "fiber_g_100g": {
+      "type": "number",
+      "description": "Fiber grams per 100g."
+    },
+    "saturated_fat_g_100g": {
+      "type": "number",
+      "description": "Saturated fat grams per 100g."
+    },
+    "sodium_mg_100g": {
+      "type": "number",
+      "description": "Sodium milligrams per 100g."
+    },
+    "nutrition_quality": {
+      "type": "string",
+      "description": "Origin/quality of the nutrition information (free text during import, no enum restriction)."
+    },
+    "nutrition_source": {
+      "type": "string",
+      "description": "Where the nutrition information originated."
+    },
+    "review_queue_status": {
+      "type": "string",
+      "description": "Review queue state for this product (free text during import, no enum restriction)."
+    },
+    "food_log_policy": {
+      "type": "string",
+      "description": "Logging policy hint."
+    },
+    "processing_level": {
+      "type": "string",
+      "description": "NOVA-style processing level."
+    },
+    "default_contexts": {
+      "type": "string",
+      "description": "Long text. Multiple contexts separated by |."
+    },
+    "gluten_status": {
+      "type": "string",
+      "description": "Gluten safety status (free text during import, no enum restriction)."
+    },
+    "fodmap_status": {
+      "type": "string",
+      "description": "FODMAP status (free text during import, no enum restriction)."
+    },
+    "lactose_status": {
+      "type": "string",
+      "description": "Lactose safety status (free text during import, no enum restriction)."
+    },
+    "confidence": {
+      "type": "number",
+      "description": "Data confidence level."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Long text. Free-text notes, references, or editorial comments."
+    },
+    "schema_version": {
+      "type": "string",
+      "description": "Schema version identifier stored as text."
+    },
+    "status": {
+      "type": "string",
+      "description": "Lifecycle status of the product record (free text during import, no enum restriction)."
+    },
+    "nutrition_reference_amount": {
+      "type": "number",
+      "description": "Reference amount the per-100g values are based on."
+    },
+    "nutrition_reference_unit": {
+      "type": "string",
+      "description": "Reference unit for the nutrition values (free text during import, no enum restriction)."
+    },
+    "pending_since": {
+      "type": "string",
+      "description": "When this record entered pending status. Stored as text (not a required Date/DateTime) because some imported values may be empty."
+    },
+    "analysis_mode": {
+      "type": "string",
+      "description": "Analysis mode flag for the product."
+    },
+    "is_active": {
+      "type": "string",
+      "description": "Active flag kept as Text for this import because CSV values must be accepted exactly as provided (not converted to Boolean)."
+    }
+  },
+  "required": []
+}

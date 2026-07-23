@@ -1,0 +1,38 @@
+{
+  "name": "LowFodmapFood",
+  "type": "object",
+  "properties": {
+    "food_name": {
+      "type": "string",
+      "description": "Name of the low-FODMAP safe food"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "fruits",
+        "vegetables",
+        "grains",
+        "proteins",
+        "dairy",
+        "nuts_seeds",
+        "other"
+      ],
+      "description": "Food category"
+    }
+  },
+  "required": [
+    "food_name"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": null,
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

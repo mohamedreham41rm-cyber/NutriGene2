@@ -1,0 +1,94 @@
+{
+  "name": "IngredientRules",
+  "type": "object",
+  "properties": {
+    "ingredient_name": {
+      "type": "string",
+      "description": "Canonical lowercase ingredient name (e.g. corn oil, garlic powder)"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Alternative names / Arabic names that map to this ingredient"
+    },
+    "base_effect": {
+      "type": "string",
+      "enum": [
+        "positive",
+        "negative",
+        "neutral"
+      ],
+      "default": "neutral"
+    },
+    "base_points": {
+      "type": "number",
+      "description": "Points to add (positive) or subtract (negative) unconditionally"
+    },
+    "context_condition": {
+      "type": "string",
+      "description": "Context string e.g. 'fried OR chips_snacks', 'ibs', 'fried AND ultra_processed'. Supports | , OR AND"
+    },
+    "context_points": {
+      "type": "number",
+      "description": "Additional points applied ONLY when context_condition is met"
+    },
+    "gluten_status": {
+      "type": "string",
+      "enum": [
+        "contains_gluten",
+        "gluten_free",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "fodmap_status": {
+      "type": "string",
+      "enum": [
+        "high",
+        "moderate",
+        "low",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "lactose_status": {
+      "type": "string",
+      "enum": [
+        "contains_lactose",
+        "lactose_free",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "risk_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags like gluten_risk, high_sodium, high_sugar, trans_fat"
+    },
+    "positive_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags like whole_grain, healthy_fat, high_protein, probiotic"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "low"
+    }
+  },
+  "required": [
+    "ingredient_name",
+    "base_points"
+  ]
+}

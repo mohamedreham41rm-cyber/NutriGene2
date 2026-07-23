@@ -1,0 +1,126 @@
+{
+  "name": "FoodLog",
+  "type": "object",
+  "properties": {
+    "name_of_consumed_food": {
+      "type": "string",
+      "description": "Name of consumed food (stored inline \u2014 no external lookup needed)"
+    },
+    "generic_food_id": {
+      "type": "string",
+      "description": "Reference to GenericFoodDatabase.food_id."
+    },
+    "food_product_id": {
+      "type": "string",
+      "description": "Reference to FoodProduct.id when the logged item came from a branded product scan."
+    },
+    "food_category": {
+      "type": "string",
+      "description": "Food category from GenericFoodDatabase."
+    },
+    "food_subcategory": {
+      "type": "string",
+      "description": "Food subcategory from GenericFoodDatabase."
+    },
+    "calories": {
+      "type": "number",
+      "description": "Calories consumed (final calculated value stored inline)"
+    },
+    "protein": {
+      "type": "number",
+      "description": "Protein consumed in grams (final calculated value stored inline)"
+    },
+    "carbs": {
+      "type": "number",
+      "description": "Carbohydrates consumed in grams (final calculated value stored inline)"
+    },
+    "fat": {
+      "type": "number",
+      "description": "Fat consumed in grams (final calculated value stored inline)"
+    },
+    "saturated_fat": {
+      "type": "number",
+      "description": "Saturated fat in grams (stored inline)"
+    },
+    "sugar": {
+      "type": "number",
+      "description": "Sugar in grams (stored inline)"
+    },
+    "fiber": {
+      "type": "number",
+      "description": "Dietary fiber in grams (stored inline)"
+    },
+    "sodium": {
+      "type": "number",
+      "description": "Sodium in mg (stored inline)"
+    },
+    "serving_amount": {
+      "type": "number",
+      "default": 1,
+      "description": "Final serving amount used to calculate the stored values"
+    },
+    "serving_unit": {
+      "type": "string",
+      "description": "Final serving unit used to calculate the stored values (e.g. g, ml, serving, slice)"
+    },
+    "nutrigene_score": {
+      "type": "number",
+      "description": "NutriGene health score (0-100)"
+    },
+    "log_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of consumption"
+    },
+    "meal_type": {
+      "type": "string",
+      "enum": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "description": "Type of meal"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional user note for this log entry"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "generic_food_db",
+        "scanner",
+        "manual",
+        "barcode"
+      ],
+      "default": "manual",
+      "description": "How this log entry was created"
+    },
+    "nutrition_source": {
+      "type": "string",
+      "description": "Legacy/source of nutrition (foodproduct_verified | ocr_session | scanner)."
+    },
+    "nutrition_entry_source": {
+      "type": "string",
+      "description": "user_label_scan = values came from a user's Nutrition Facts scan of an estimated product."
+    },
+    "nutrition_quality": {
+      "type": "string",
+      "description": "official = from a verified FoodProduct; user_provided = from a user's label scan; generic|manual otherwise."
+    },
+    "nutrition_image": {
+      "type": "string",
+      "description": "URL of the Nutrition Facts image used to derive the values (for user_label_scan entries)."
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Optional photo of the meal (legacy)"
+    }
+  },
+  "required": [
+    "name_of_consumed_food",
+    "calories",
+    "log_date"
+  ]
+}

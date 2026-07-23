@@ -1,0 +1,112 @@
+{
+  "name": "SearchIndex",
+  "type": "object",
+  "properties": {
+    "search_text": {
+      "type": "string",
+      "description": "Original searchable text shown to users. Examples: \u0645\u064a\u0631\u0646\u062f\u0627, \u0634\u064a\u0628\u0633\u064a, oreo, \u0631\u0632"
+    },
+    "normalized_search": {
+      "type": "string",
+      "description": "Normalized lowercase version used for searching. Must always be lowercase."
+    },
+    "search_type": {
+      "type": "string",
+      "enum": [
+        "brand",
+        "product",
+        "generic_food",
+        "archetype",
+        "ingredient",
+        "keyword"
+      ],
+      "description": "Type of search entry."
+    },
+    "target_type": {
+      "type": "string",
+      "enum": [
+        "FoodProduct",
+        "GenericFoodDatabase",
+        "ProductArchetypes",
+        "Ingredient"
+      ],
+      "description": "Entity type this entry points to."
+    },
+    "target_key": {
+      "type": "string",
+      "description": "Unique identifier or stable lookup key of the target record."
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Name displayed inside autocomplete."
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "Optional subtitle shown in autocomplete. Examples: Brand, Product, Generic Food, Category."
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand or manufacturer name."
+    },
+    "category": {
+      "type": "string",
+      "description": "Primary product or food category."
+    },
+    "archetype_key": {
+      "type": "string",
+      "description": "ProductArchetype identifier for fallback scoring."
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "ar",
+        "en"
+      ],
+      "description": "Language of the search_text entry."
+    },
+    "priority": {
+      "type": "number",
+      "description": "Search priority order. Lower value = higher priority. Sorted ascending.",
+      "default": 100
+    },
+    "search_weight": {
+      "type": "number",
+      "description": "Search relevance weight. Higher value = more relevant. Sorted descending.",
+      "default": 100
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Whether this entry has been manually verified.",
+      "default": true
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "ProductAlias",
+        "FoodProduct",
+        "GenericFoodDatabase",
+        "ProductArchetypes",
+        "Ingredient"
+      ],
+      "description": "Which entity this index entry was derived from."
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "Whether this entry is active and returned in autocomplete results.",
+      "default": true
+    },
+    "schema_version": {
+      "type": "number",
+      "description": "Schema version of this record (current: 1).",
+      "default": 1
+    }
+  },
+  "required": [
+    "search_text",
+    "normalized_search",
+    "search_type",
+    "target_type",
+    "target_key",
+    "display_name"
+  ]
+}

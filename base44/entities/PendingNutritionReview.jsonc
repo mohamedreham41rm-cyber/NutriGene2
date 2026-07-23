@@ -1,0 +1,133 @@
+{
+  "name": "PendingNutritionReview",
+  "type": "object",
+  "properties": {
+    "product_id": {
+      "type": "string",
+      "description": "Reference to FoodProduct.id the submitted nutrition is for."
+    },
+    "product_name": {
+      "type": "string",
+      "description": "Product name at the time of submission."
+    },
+    "food_log_id": {
+      "type": "string",
+      "description": "Reference to the FoodLog entry created from this scan (1:1 \u2014 no duplicate reviews per log entry)."
+    },
+    "submitted_by": {
+      "type": "string",
+      "description": "Email of the user who submitted the scan."
+    },
+    "nutrition_image": {
+      "type": "string",
+      "description": "URL of the uploaded Nutrition Facts image."
+    },
+    "extracted_calories": {
+      "type": "number",
+      "description": "Calories extracted from the Nutrition Facts image."
+    },
+    "extracted_protein": {
+      "type": "number",
+      "description": "Protein (g) extracted from the Nutrition Facts image."
+    },
+    "extracted_carbs": {
+      "type": "number",
+      "description": "Carbohydrates (g) extracted from the Nutrition Facts image."
+    },
+    "extracted_fat": {
+      "type": "number",
+      "description": "Fat (g) extracted from the Nutrition Facts image."
+    },
+    "extracted_saturated_fat": {
+      "type": "number",
+      "description": "Saturated fat (g) extracted from the Nutrition Facts image."
+    },
+    "extracted_sugar": {
+      "type": "number",
+      "description": "Sugar (g) extracted from the Nutrition Facts image."
+    },
+    "extracted_fiber": {
+      "type": "number",
+      "description": "Fiber (g) extracted from the Nutrition Facts image."
+    },
+    "extracted_sodium": {
+      "type": "number",
+      "description": "Sodium (mg) extracted from the Nutrition Facts image."
+    },
+    "serving_size": {
+      "type": "number",
+      "description": "Serving size printed on the label."
+    },
+    "serving_unit": {
+      "type": "string",
+      "description": "Serving size unit printed on the label (g, ml, piece, ...)."
+    },
+    "ocr_confidence": {
+      "type": "number",
+      "description": "OCR confidence (0-1) if available."
+    },
+    "user_corrected": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if the user manually edited the extracted values before saving."
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the scan was submitted."
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Review queue state."
+    },
+    "reviewer_id": {
+      "type": "string",
+      "description": "Admin who approved/rejected."
+    },
+    "reviewer_notes": {
+      "type": "string",
+      "description": "Reviewer comments (required for rejection)."
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the review decision was made."
+    },
+    "ocr_calories": {
+      "type": "number",
+      "description": "Legacy calories alias (mirrors extracted_calories)."
+    },
+    "ocr_protein": {
+      "type": "number",
+      "description": "Legacy protein alias (mirrors extracted_protein)."
+    },
+    "ocr_carbs": {
+      "type": "number",
+      "description": "Legacy carbs alias (mirrors extracted_carbs)."
+    },
+    "ocr_fat": {
+      "type": "number",
+      "description": "Legacy fat alias (mirrors extracted_fat)."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Legacy review state mirror."
+    }
+  },
+  "required": [
+    "product_name",
+    "review_status"
+  ]
+}

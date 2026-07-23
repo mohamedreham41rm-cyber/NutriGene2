@@ -1,0 +1,50 @@
+{
+  "name": "NutritionRules",
+  "type": "object",
+  "properties": {
+    "rule_id": {
+      "type": "string",
+      "description": "Unique identifier e.g. high_sugar, high_sodium"
+    },
+    "nutrient": {
+      "type": "string",
+      "description": "Nutrient field name on foodData: sugar, sodium, saturated_fat, trans_fat, fiber, protein"
+    },
+    "operator": {
+      "type": "string",
+      "enum": [
+        "gt",
+        "lt",
+        "gte",
+        "lte",
+        "present"
+      ],
+      "description": "Comparison operator"
+    },
+    "threshold": {
+      "type": "number",
+      "description": "Threshold value (per 100g). Ignored for 'present' operator."
+    },
+    "points": {
+      "type": "number",
+      "description": "Points to apply (negative = penalty, positive = bonus)"
+    },
+    "label_en": {
+      "type": "string"
+    },
+    "label_ar": {
+      "type": "string"
+    },
+    "only_when_missing_is_unknown": {
+      "type": "boolean",
+      "default": true,
+      "description": "If true, rule is skipped when nutrient value is null/undefined \u2014 missing != 0"
+    }
+  },
+  "required": [
+    "rule_id",
+    "nutrient",
+    "operator",
+    "points"
+  ]
+}

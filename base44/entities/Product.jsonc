@@ -1,0 +1,55 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "ingredients_text": {
+      "type": "string",
+      "description": "Raw ingredients list"
+    },
+    "calories": {
+      "type": "number",
+      "description": "Calories per serving"
+    },
+    "carbs": {
+      "type": "number"
+    },
+    "fat": {
+      "type": "number"
+    },
+    "protein": {
+      "type": "number"
+    },
+    "blacklist_flag": {
+      "type": "boolean",
+      "default": false,
+      "description": "Contains blacklisted ingredients"
+    },
+    "low_fodmap_flag": {
+      "type": "boolean",
+      "default": false,
+      "description": "Is Low-FODMAP safe"
+    },
+    "barcode": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "whitelist",
+        "openfoodfacts",
+        "manual"
+      ],
+      "default": "manual"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

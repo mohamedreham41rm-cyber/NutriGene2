@@ -1,0 +1,94 @@
+{
+  "name": "Ingredient",
+  "type": "object",
+  "properties": {
+    "canonical_name": {
+      "type": "string",
+      "description": "Primary English canonical name of the ingredient"
+    },
+    "arabic_name": {
+      "type": "string",
+      "description": "Arabic name of the ingredient"
+    },
+    "normalized_name": {
+      "type": "string",
+      "description": "Lowercased, trimmed name used for matching and deduplication"
+    },
+    "aliases": {
+      "type": "string",
+      "description": "Alternative names separated by | (e.g. corn syrup|maize syrup|glucose syrup)"
+    },
+    "ingredient_category": {
+      "type": "string",
+      "description": "Functional category (e.g. oil, grain, additive, sweetener, protein, spice)"
+    },
+    "base_effect": {
+      "type": "string",
+      "description": "Overall scoring direction: penalty | bonus | neutral"
+    },
+    "base_points": {
+      "type": "number",
+      "description": "Unconditional score adjustment applied whenever this ingredient is detected",
+      "default": 0
+    },
+    "context_condition": {
+      "type": "string",
+      "description": "Context string that triggers extra points (e.g. fried OR chips_snacks, ibs, celiac AND ultra_processed)"
+    },
+    "context_points": {
+      "type": "number",
+      "description": "Additional score points applied only when context_condition is met",
+      "default": 0
+    },
+    "risk_tags": {
+      "type": "string",
+      "description": "Risk tags separated by | (e.g. gluten_risk|high_sodium|trans_fat)"
+    },
+    "positive_tags": {
+      "type": "string",
+      "description": "Positive tags separated by | (e.g. whole_grain|healthy_fat|high_protein|probiotic)"
+    },
+    "gluten_status": {
+      "type": "string",
+      "description": "Gluten safety: contains | safe | may_contain | unknown"
+    },
+    "fodmap_status": {
+      "type": "string",
+      "description": "FODMAP level: low | high | portion_dependent | unknown"
+    },
+    "lactose_status": {
+      "type": "string",
+      "description": "Lactose safety: contains | safe | may_contain | unknown"
+    },
+    "severity": {
+      "type": "string",
+      "description": "Impact severity: low | medium | high | critical"
+    },
+    "processing_level": {
+      "type": "string",
+      "description": "NOVA-style processing: fresh | minimal | processed | ultra_processed | unknown"
+    },
+    "verification_status": {
+      "type": "string",
+      "description": "Data quality status: unverified | reviewed | verified | flagged"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-text notes, scientific references, or editorial comments"
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "Whether this ingredient record is active and used by the scoring engine",
+      "default": true
+    },
+    "schema_version": {
+      "type": "number",
+      "description": "Schema version of this record (current: 2)",
+      "default": 2
+    }
+  },
+  "required": [
+    "canonical_name",
+    "normalized_name"
+  ]
+}

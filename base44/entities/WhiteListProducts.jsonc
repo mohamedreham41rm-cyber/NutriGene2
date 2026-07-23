@@ -1,0 +1,91 @@
+{
+  "name": "WhiteListProducts",
+  "type": "object",
+  "properties": {
+    "product_name": {
+      "type": "string",
+      "description": "Normalized product name (lowercase)"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand name (optional)"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "bread",
+        "pasta",
+        "snack",
+        "dairy",
+        "beverage",
+        "cereal",
+        "sauce",
+        "frozen",
+        "grain",
+        "other"
+      ],
+      "description": "Product category"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Safety tags: gluten_free, low_fodmap, lactose_free, low_sugar, dairy_free"
+    },
+    "allowed_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Conditions this product is safe for: celiac, gluten_sensitivity, IBS, lactose_intolerance, general"
+    },
+    "restricted_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Conditions this product is NOT safe for"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Short human-readable explanation"
+    },
+    "barcode": {
+      "type": "string",
+      "description": "Product barcode (optional)"
+    },
+    "ingredients": {
+      "type": "string",
+      "description": "Ingredients list (optional)"
+    },
+    "calories": {
+      "type": "number",
+      "description": "Calories per serving"
+    },
+    "protein": {
+      "type": "number",
+      "description": "Protein in grams"
+    },
+    "carbs": {
+      "type": "number",
+      "description": "Carbohydrates in grams"
+    },
+    "fat": {
+      "type": "number",
+      "description": "Fat in grams"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country where product is available"
+    },
+    "last_verified_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the entry was last verified"
+    }
+  },
+  "required": [
+    "product_name"
+  ]
+}

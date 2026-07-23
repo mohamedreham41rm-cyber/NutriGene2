@@ -1,0 +1,66 @@
+{
+  "name": "ProductAlias",
+  "type": "object",
+  "properties": {
+    "alias": {
+      "type": "string",
+      "description": "The alias text as entered."
+    },
+    "normalized_alias": {
+      "type": "string",
+      "description": "Lowercase normalized alias used for exact search and deduplication."
+    },
+    "language": {
+      "type": "string",
+      "description": "Language of the alias: ar | en."
+    },
+    "alias_type": {
+      "type": "string",
+      "description": "Type of alias: brand | product | generic | common_name | misspelling | arabic | english."
+    },
+    "product_name": {
+      "type": "string",
+      "description": "Official product name this alias maps to."
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand or manufacturer name."
+    },
+    "archetype_key": {
+      "type": "string",
+      "description": "ProductArchetype identifier for fallback scoring."
+    },
+    "category": {
+      "type": "string",
+      "description": "Primary product category."
+    },
+    "priority": {
+      "type": "number",
+      "description": "Search priority order (lower = higher priority).",
+      "default": 100
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Whether this alias has been verified.",
+      "default": true
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-text notes or editorial comments."
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "Whether this alias is active and used by the application.",
+      "default": true
+    },
+    "schema_version": {
+      "type": "number",
+      "description": "Schema version of this record (current: 1).",
+      "default": 1
+    }
+  },
+  "required": [
+    "alias",
+    "normalized_alias"
+  ]
+}

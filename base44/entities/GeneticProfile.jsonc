@@ -1,0 +1,116 @@
+{
+  "name": "GeneticProfile",
+  "type": "object",
+  "properties": {
+    "file_url": {
+      "type": "string",
+      "description": "URL of uploaded genetic file (23andMe, AncestryDNA, etc.)"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Original filename"
+    },
+    "selected_tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specific genetic tests selected by user"
+    },
+    "ai_analysis": {
+      "type": "object",
+      "description": "AI-generated analysis results"
+    },
+    "gluten_gene_risk": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "celiac_gene_risk": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "analyzed_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "file_format": {
+      "type": "string",
+      "enum": [
+        "23andme",
+        "ancestrydna",
+        "myheritage",
+        "ftdna",
+        "raw_vcf",
+        "other",
+        "unknown"
+      ],
+      "default": "unknown",
+      "description": "Source format of the uploaded genetic file"
+    },
+    "total_snps_parsed": {
+      "type": "number",
+      "description": "Number of SNP rows successfully parsed from the file"
+    },
+    "analysis_version": {
+      "type": "string",
+      "description": "Version of the analysis pipeline that processed this file"
+    },
+    "lactose_gene_risk": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ],
+      "default": "unknown",
+      "description": "LCT gene risk for lactose intolerance"
+    },
+    "metabolic_gene_risk": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ],
+      "default": "unknown",
+      "description": "MTHFR / FTO / TCF7L2 combined metabolic risk summary"
+    },
+    "cardiovascular_gene_risk": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ],
+      "default": "unknown",
+      "description": "APOE / cardiovascular gene risk summary"
+    },
+    "processing_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "processing",
+        "completed",
+        "failed"
+      ],
+      "default": "pending",
+      "description": "Current processing state of the uploaded file"
+    }
+  },
+  "required": []
+}
